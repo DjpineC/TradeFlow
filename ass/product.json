@@ -1,0 +1,342 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "image": "./ass/img.png",
+      "title": "【黑鹰】3x3保险箱 账密登录 纯币资产81.7M",
+      "price": 168,
+      "tags": [
+        { "name": "一手号", "color": "rgb(68 82 169/var(--tw-bg-opacity,1))" },
+        { "name": "可二次", "color": "#4ECDC4" }
+      ],
+      "promotion": {
+        "tag": "特惠",
+        "badge": "骨折价"
+      },
+      "accountFeatures": [
+        { "info": "60级" },
+        { "info": "黑鹰" },
+        { "info": "3x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "江苏省-南京市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "267.3M" },
+        { "info": "81.7M" },
+        { "info": "H416 5级套 + M4 4级套" },
+        { "info": "锁爪-推什戴尔" },
+        { "info": "2组 3x3" }
+      ],
+      "code": "539033065555"
+    },
+    {
+      "id": 2,
+      "image": "./ass/img.png",
+      "title": "【S3赛季】黑鹰 3x3 纯币97M 总资产1.2B",
+      "price": 238,
+      "tags": [
+        { "name": "急出", "color": "#FF4757" },
+        { "name": "可走中", "color": "#4ECDC4" },
+        { "name": "包人脸", "color": "#45B7D1" },
+        { "name": "爽快送改名卡", "color": "#A29BFE" }
+      ],
+      "promotion": {
+        "tag": "限时特价",
+        "badge": "半价"
+      },
+      "accountFeatures": [
+        { "info": "67级" },
+        { "info": "黑鹰" },
+        { "info": "3x3" },
+        { "info": "账密登录" },
+        { "info": "QQ" },
+        { "info": "广东省-深圳市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "1.2B" },
+        { "info": "97M" },
+        { "info": "K416 5级套 + SR25 4级套" },
+        { "info": "推什戴尔 锁爪" },
+        { "info": "3组 3x3 + 2组 2x2" }
+      ],
+      "code": "539033065556"
+    },
+    {
+      "id": 3,
+      "image": "./ass/img.png",
+      "title": "【自用退坑】黑鹰号 4x3保险箱 满级仓库",
+      "price": 99,
+      "tags": [
+        { "name": "退坑号", "color": "#FF4757" },
+        { "name": "自玩一手", "color": "#2ED573" },
+        { "name": "可压证", "color": "#1E90FF" },
+        { "name": "急售", "color": "#A855F7" }
+      ],
+      "promotion": {
+        "tag": "急出",
+        "badge": "血亏甩卖"
+      },
+      "accountFeatures": [
+        { "info": "72级" },
+        { "info": "黑鹰" },
+        { "info": "4x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "浙江省-杭州市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "856M" },
+        { "info": "43.2M" },
+        { "info": "M7 5级套 + AWM 4级套" },
+        { "info": "红卡 蓝卡 紫卡" },
+        { "info": "5组 4x3" }
+      ],
+      "code": "539033065557"
+    },
+    {
+      "id": 4,
+      "image": "./ass/img.png",
+      "title": "【极品】黑鹰 3x3 纯币201M 战神套齐全",
+      "price": 520,
+      "tags": [
+        { "name": "天花板", "color": "#FF6B6B" },
+        { "name": "可二次", "color": "#4ECDC4" },
+        { "name": "走中包赔", "color": "#45B7D1" },
+        { "name": "带妹神号", "color": "#A855F7" }
+      ],
+      "promotion": {
+        "tag": "镇店之宝",
+        "badge": "特惠"
+      },
+      "accountFeatures": [
+        { "info": "81级" },
+        { "info": "黑鹰" },
+        { "info": "3x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "湖南省-长沙市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "2.1B" },
+        { "info": "201M" },
+        { "info": "H416 5级套*2 + M249 4级套" },
+        { "info": "推什戴尔 锁爪 红卡" },
+        { "info": "4组 3x3" }
+      ],
+      "code": "539033065558"
+    },
+    {
+      "id": 5,
+      "image": "./ass/img.png",
+      "title": "【特价秒杀】黑鹰 3x2 小号 纯币23M",
+      "price": 56,
+      "tags": [
+        { "name": "小号", "color": "#A8D8B9" },
+        { "name": "可二次", "color": "#4ECDC4" },
+        { "name": "走平台", "color": "#45B7D1" },
+        { "name": "适合新手", "color": "#BB8FCE" }
+      ],
+      "promotion": {
+        "tag": "秒杀",
+        "badge": "骨折价"
+      },
+      "accountFeatures": [
+        { "info": "42级" },
+        { "info": "黑鹰" },
+        { "info": "3x2" },
+        { "info": "账密登录" },
+        { "info": "QQ" },
+        { "info": "四川省-成都市" },
+        { "info": "无封禁记录" },
+        { "info": "否" }
+      ],
+      "accountResources": [
+        { "info": "89M" },
+        { "info": "23M" },
+        { "info": "M4 3级套" },
+        { "info": "无" },
+        { "info": "1组 3x2" }
+      ],
+      "code": "539033065559"
+    },
+    {
+      "id": 6,
+      "image": "./ass/img.png",
+      "title": "【退坑急出】黑鹰 3x3 纯币55M 账密登录",
+      "price": 128,
+      "tags": [
+        { "name": "急出", "color": "#FF4757" },
+        { "name": "退坑号", "color": "#FF6B6B" },
+        { "name": "包赔", "color": "#2ED573" },
+        { "name": "不刀", "color": "#A29BFE" }
+      ],
+      "promotion": {
+        "tag": "急售",
+        "badge": "限时特价"
+      },
+      "accountFeatures": [
+        { "info": "55级" },
+        { "info": "黑鹰" },
+        { "info": "3x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "湖北省-武汉市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "320M" },
+        { "info": "55M" },
+        { "info": "M4 4级套 + AUG 3级套" },
+        { "info": "锁爪" },
+        { "info": "2组 3x3" }
+      ],
+      "code": "539033065560"
+    },
+    {
+      "id": 7,
+      "image": "./ass/img.png",
+      "title": "【高端号】黑鹰 4x3 纯币150M 全武器解锁",
+      "price": 388,
+      "tags": [
+        { "name": "天花板", "color": "#FF6B6B" },
+        { "name": "可二次", "color": "#4ECDC4" },
+        { "name": "包赔", "color": "#2ED573" },
+        { "name": "不议价", "color": "#A855F7" }
+      ],
+      "promotion": {
+        "tag": "高端",
+        "badge": "精品推荐"
+      },
+      "accountFeatures": [
+        { "info": "88级" },
+        { "info": "黑鹰" },
+        { "info": "4x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "北京市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "2.8B" },
+        { "info": "150M" },
+        { "info": "H416 5级套*3 + AWM 5级套" },
+        { "info": "推什戴尔 红卡 蓝卡 紫卡" },
+        { "info": "6组 4x3" }
+      ],
+      "code": "539033065561"
+    },
+    {
+      "id": 8,
+      "image": "./ass/img.png",
+      "title": "【新手号】黑鹰 3x2 纯币10M 适合练手",
+      "price": 35,
+      "tags": [
+        { "name": "小号", "color": "#A8D8B9" },
+        { "name": "适合新手", "color": "#BB8FCE" },
+        { "name": "走平台", "color": "#45B7D1" },
+        { "name": "包赔", "color": "#2ED573" }
+      ],
+      "promotion": {
+        "tag": "新人专享",
+        "badge": "骨折价"
+      },
+      "accountFeatures": [
+        { "info": "28级" },
+        { "info": "黑鹰" },
+        { "info": "3x2" },
+        { "info": "账密登录" },
+        { "info": "QQ" },
+        { "info": "河南省-郑州市" },
+        { "info": "无封禁记录" },
+        { "info": "否" }
+      ],
+      "accountResources": [
+        { "info": "32M" },
+        { "info": "10M" },
+        { "info": "M16 2级套" },
+        { "info": "无" },
+        { "info": "1组 3x2" }
+      ],
+      "code": "539033065562"
+    },
+    {
+      "id": 9,
+      "image": "./ass/img.png",
+      "title": "【收藏号】黑鹰 3x3 纯币300M 稀有皮肤",
+      "price": 688,
+      "tags": [
+        { "name": "收藏级", "color": "#FFD700" },
+        { "name": "一手号", "color": "rgb(68 82 169/var(--tw-bg-opacity,1))" },
+        { "name": "可二次", "color": "#4ECDC4" },
+        { "name": "不刀", "color": "#A29BFE" }
+      ],
+      "promotion": {
+        "tag": "稀有",
+        "badge": "收藏推荐"
+      },
+      "accountFeatures": [
+        { "info": "95级" },
+        { "info": "黑鹰" },
+        { "info": "3x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "上海市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "3.2B" },
+        { "info": "300M" },
+        { "info": "H416 5级套 + 黄金AWM" },
+        { "info": "推什戴尔 红卡 蓝卡 紫卡 金卡" },
+        { "info": "5组 3x3" }
+      ],
+      "code": "539033065563"
+    },
+    {
+      "id": 10,
+      "image": "./ass/img.png",
+      "title": "【特价】黑鹰 3x3 纯币65M 账密登录 走平台",
+      "price": 145,
+      "tags": [
+        { "name": "捡漏价", "color": "#FFA94D" },
+        { "name": "走平台", "color": "#45B7D1" },
+        { "name": "包赔", "color": "#2ED573" },
+        { "name": "不刀", "color": "#A29BFE" }
+      ],
+      "promotion": {
+        "tag": "特价",
+        "badge": "限时秒杀"
+      },
+      "accountFeatures": [
+        { "info": "50级" },
+        { "info": "黑鹰" },
+        { "info": "3x3" },
+        { "info": "账密登录" },
+        { "info": "微信" },
+        { "info": "福建省-厦门市" },
+        { "info": "无封禁记录" },
+        { "info": "是" }
+      ],
+      "accountResources": [
+        { "info": "280M" },
+        { "info": "65M" },
+        { "info": "M4 4级套 + SR25 3级套" },
+        { "info": "锁爪 蓝卡" },
+        { "info": "2组 3x3 + 1组 2x2" }
+      ],
+      "code": "539033065564"
+    }
+  ]
+}
