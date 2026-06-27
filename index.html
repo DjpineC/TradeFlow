@@ -5,9 +5,16 @@
     <meta charset="utf-8">
   </head>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <link rel="stylesheet" href="./index.css">
   <body>
+    <div class="login_box">
+            <div class="login_main">
+                <p>dengasdkhkasdhkashdjkahskjdhkj</p>
+            </div>
+        </div>
     <div id="app" style="display: flex;flex-wrap: wrap;background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 50%, #e8eaf6 100%);justify-content: center;">
+        
         <div class="watermark">
             <span v-for="i in 100" :key="i">XX交易行</span>
         </div>
@@ -50,9 +57,7 @@
             <img :src="item.image">
             <div style="flex: 1;">
                 <div>
-                    <span class="info" v-for="info in item.tags" :key="info.name" :style="{backgroundColor: info.color }">
-                        {{info.name}}
-                    </span>
+                    <span class="info" v-for="info in item.tags" :key="info.name" :style="{backgroundColor: info.color }">&nbsp;{{info.name}}&nbsp;</span>
                     <span class="title">
                         {{item.title}}
                     </span>
