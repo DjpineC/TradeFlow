@@ -1,127 +1,207 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <title>xx交易行</title>
     <meta charset="utf-8">
-  </head>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <link rel="stylesheet" href="./index.css">
-  <body>
-    <div class="login_box">
-            <div class="login_main">
-                <p>dengasdkhkasdhkashdjkahskjdhkj</p>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.108.2/dist/umd/supabase.min.js"></script>
+<link rel="stylesheet" href="./index.css">
+
+<body>
+    <div id="app"
+        style="display: flex;flex-wrap: wrap;background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 50%, #e8eaf6 100%);justify-content: center;">
+        <div class="login_box" v-if="logining" @click="logining=!logining">
+            <div class="login_main" @click.stop>
+                <img src="./ass/img.png" alt="">
+                <div class="big">
+                    <div class="login_main_test">
+                        <p>密码登录</p>
+                        <p>短信登录</p>
+                    </div>
+                    <div class="login_maim_inputs">
+                        <div class="login_maim_input">
+                            <svg width="2em" height="2em" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v2h20v-2c0-3.33-6.67-5-10-5z" />
+                            </svg><input type="text" placeholder="请输入邮箱" v-model="emlie">
+                        </div>
+                        <div class="login_maim_input">
+                            <svg width="2em" height="2em" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+                            </svg><input type="text" placeholder="请输入密码" v-model="password">
+                        </div>
+                    </div>
+                    <div class="login_login">
+                        <button>登录</button>
+                        <button @click="register()">注册</button>
+                    </div>
+                    <div class="agreement">
+                        <input type="checkbox" id="agree" v-model="userpesion" />
+                        <label for="agree">我已阅读并同意《用户协议》</label>
+                    </div>
+                </div>
             </div>
         </div>
-    <div id="app" style="display: flex;flex-wrap: wrap;background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 50%, #e8eaf6 100%);justify-content: center;">
-        
         <div class="watermark">
             <span v-for="i in 100" :key="i">XX交易行</span>
         </div>
         <div class="nav_login">
-        <p>Hi~欢迎访问xx交易行！<a href="#">请登录/注册</a></p>
-        <ul>
-            <li>订单消息</li>
-            <li>个人中心</li>
-            <li>客服帮助</li>
-            <li>关于我们</li>
-        </ul>
-      </div>
-      <div class="nav">
-        <h1>XX交易行</h1>
-        <a href="" style="background-color: black;color: white;margin-left: 2em;">资源号租凭</a>
-        <a href="">出游戏币</a>
-        <a href="">我的订单</a>
-        <a href="">官方公告</a>
-        <div class="find">
-            <input type="text">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-                搜索
-            </button>
+            <p>Hi~欢迎访问xx交易行！<a @click="logining=!loging">请登录/注册</a></p>
+            <ul>
+                <li>订单消息</li>
+                <li>个人中心</li>
+                <li>客服帮助</li>
+                <li>关于我们</li>
+            </ul>
         </div>
-      </div>
-      <div class="generalComponent" style="width: 90%;">
-        <div style="display: flex;align-items: center;gap: 2em;">
-            <span>综合排序</span>
-            <span>价格排序<svg t="1781961701262" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5041" width="16" height="16"><path d="M719.8 480H304.2c-49.5 0-80.3-53.9-55.1-96.5l207.8-352C469.3 10.5 490.7 0 512 0s42.7 10.5 55.1 31.5l207.8 351.9c25.2 42.7-5.5 96.6-55.1 96.6zM774.9 640.5l-207.8 352c-12.4 21-33.8 31.5-55.1 31.5s-42.7-10.5-55.1-31.5l-207.8-352c-25.2-42.7 5.6-96.5 55.1-96.5h415.6c49.6 0 80.3 53.9 55.1 96.5z" p-id="5042" data-spm-anchor-id="a313x.search_index.0.i1.72f13a81JuW278" class="selected" fill="#dbdbdb"></path></svg></span>
-            <span>纯币排序<svg t="1781961701262" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5041" width="16" height="16"><path d="M719.8 480H304.2c-49.5 0-80.3-53.9-55.1-96.5l207.8-352C469.3 10.5 490.7 0 512 0s42.7 10.5 55.1 31.5l207.8 351.9c25.2 42.7-5.5 96.6-55.1 96.6zM774.9 640.5l-207.8 352c-12.4 21-33.8 31.5-55.1 31.5s-42.7-10.5-55.1-31.5l-207.8-352c-25.2-42.7 5.6-96.5 55.1-96.5h415.6c49.6 0 80.3 53.9 55.1 96.5z" p-id="5042" data-spm-anchor-id="a313x.search_index.0.i1.72f13a81JuW278" class="selected" fill="#dbdbdb"></path></svg></span>
-            <span>安全箱<svg t="1781961701262" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5041" width="16" height="16"><path d="M719.8 480H304.2c-49.5 0-80.3-53.9-55.1-96.5l207.8-352C469.3 10.5 490.7 0 512 0s42.7 10.5 55.1 31.5l207.8 351.9c25.2 42.7-5.5 96.6-55.1 96.6zM774.9 640.5l-207.8 352c-12.4 21-33.8 31.5-55.1 31.5s-42.7-10.5-55.1-31.5l-207.8-352c-25.2-42.7 5.6-96.5 55.1-96.5h415.6c49.6 0 80.3 53.9 55.1 96.5z" p-id="5042" data-spm-anchor-id="a313x.search_index.0.i1.72f13a81JuW278" class="selected" fill="#dbdbdb"></path></svg></span>
+        <div class="nav">
+            <h1>XX交易行</h1>
+            <a href="" style="background-color: black;color: white;margin-left: 2em;">资源号租凭</a>
+            <a href="">出游戏币</a>
+            <a href="">我的订单</a>
+            <a href="">官方公告</a>
+            <div class="find">
+                <input type="text">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    搜索
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="generalComponent" v-for="item in product" :key="item.id">
-        <div class="product">
-            <img :src="item.image">
-            <div style="flex: 1;">
-                <div>
-                    <span class="info" v-for="info in item.tags" :key="info.name" :style="{backgroundColor: info.color }">&nbsp;{{info.name}}&nbsp;</span>
-                    <span class="title">
-                        {{item.title}}
-                    </span>
+        <div class="generalComponent" style="width: 90%;">
+            <div style="display: flex;align-items: center;gap: 2em;">
+                <span>综合排序</span>
+                <span>价格排序<svg t="1781961701262" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="5041" width="16" height="16">
+                        <path
+                            d="M719.8 480H304.2c-49.5 0-80.3-53.9-55.1-96.5l207.8-352C469.3 10.5 490.7 0 512 0s42.7 10.5 55.1 31.5l207.8 351.9c25.2 42.7-5.5 96.6-55.1 96.6zM774.9 640.5l-207.8 352c-12.4 21-33.8 31.5-55.1 31.5s-42.7-10.5-55.1-31.5l-207.8-352c-25.2-42.7 5.6-96.5 55.1-96.5h415.6c49.6 0 80.3 53.9 55.1 96.5z"
+                            p-id="5042" data-spm-anchor-id="a313x.search_index.0.i1.72f13a81JuW278" class="selected"
+                            fill="#dbdbdb"></path>
+                    </svg></span>
+                <span>纯币排序<svg t="1781961701262" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="5041" width="16" height="16">
+                        <path
+                            d="M719.8 480H304.2c-49.5 0-80.3-53.9-55.1-96.5l207.8-352C469.3 10.5 490.7 0 512 0s42.7 10.5 55.1 31.5l207.8 351.9c25.2 42.7-5.5 96.6-55.1 96.6zM774.9 640.5l-207.8 352c-12.4 21-33.8 31.5-55.1 31.5s-42.7-10.5-55.1-31.5l-207.8-352c-25.2-42.7 5.6-96.5 55.1-96.5h415.6c49.6 0 80.3 53.9 55.1 96.5z"
+                            p-id="5042" data-spm-anchor-id="a313x.search_index.0.i1.72f13a81JuW278" class="selected"
+                            fill="#dbdbdb"></path>
+                    </svg></span>
+                <span>安全箱<svg t="1781961701262" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="5041" width="16" height="16">
+                        <path
+                            d="M719.8 480H304.2c-49.5 0-80.3-53.9-55.1-96.5l207.8-352C469.3 10.5 490.7 0 512 0s42.7 10.5 55.1 31.5l207.8 351.9c25.2 42.7-5.5 96.6-55.1 96.6zM774.9 640.5l-207.8 352c-12.4 21-33.8 31.5-55.1 31.5s-42.7-10.5-55.1-31.5l-207.8-352c-25.2-42.7 5.6-96.5 55.1-96.5h415.6c49.6 0 80.3 53.9 55.1 96.5z"
+                            p-id="5042" data-spm-anchor-id="a313x.search_index.0.i1.72f13a81JuW278" class="selected"
+                            fill="#dbdbdb"></path>
+                    </svg></span>
+            </div>
+        </div>
+        <div class="generalComponent" v-for="item in product" :key="item.id">
+            <div class="product">
+                <img :src="item.image">
+                <div style="flex: 1;">
+                    <div>
+                        <span class="info" v-for="info in item.tags" :key="info.name"
+                            :style="{backgroundColor: info.color }">&nbsp;{{info.name}}&nbsp;</span>
+                        <span class="title">
+                            {{item.title}}
+                        </span>
+                    </div>
+                    <div style="margin: 0.5em 0;">
+                        <span class="info_gray" v-for="info in item.accountFeatures" :key="info.info">
+                            {{info.info}}
+                        </span>
+                    </div>
+                    <div>
+                        <span class="info_box" v-for="info in item.accountResources" :key="info.info">
+                            {{info.info}}
+                        </span>
+                    </div>
+                    <div class="resources">
+                        <div class="box" v-for="i in 17">
+                            <p>资源{{i}}</p>
+                        </div>
+                    </div>
                 </div>
-                <div style="margin: 0.5em 0;">
-                    <span class="info_gray" v-for="info in item.accountFeatures" :key="info.info">
-                        {{info.info}}
-                    </span>
-                </div>  
-                <div>
-                    <span class="info_box" v-for="info in item.accountResources" :key="info.info">
-                        {{info.info}}
-                    </span>
-                </div>
-                <div class="resources">
-                    <div class="box" v-for="i in 17">
-                        <p>资源{{i}}</p>
+                <div class="price">
+                    <div style="display: flex;justify-content: flex-end;margin: 1em;">
+                        <div class="code">
+                            <span>商品编号：{{item.code}}</span>
+                        </div>
+                    </div>
+                    <div class="deposit">
+                        <span>押金：￥</span>
+                        <span style="font-weight: 600;">{{item.price}}</span>
+                    </div>
+                    <div class="purchase" @click="logining=!logining">
+                        <span>租金：￥</span>
+                        <span style="font-size: 20px;font-weight: 600;">{{item.price}}</span>
+                        <div class="palu_button">
+                            <p>立即租玩</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="price">
-                <div style="display: flex;justify-content: flex-end;margin: 1em;">
-                    <div class="code">
-                        <span>商品编号：{{item.code}}</span>
-                    </div>
-                </div>
-                <div class="deposit">
-                    <span>押金：￥</span>
-                    <span style="font-weight: 600;">{{item.price}}</span>
-                </div>
-                <div class="purchase">
-                    <span>租金：￥</span>
-                    <span style="font-size: 20px;font-weight: 600;">{{item.price}}</span>
-                    <div class="palu_button">
-                        <p>立即租玩</p>
-                    </div>
-                </div>
-            </div>
         </div>
-      </div>
     </div>
-  </body>
-  <script>
+</body>
+<script>
+    const supabaseapp = window.supabase.createClient(
+        'https://peyqfvxzesnyfluapilt.supabase.co',
+        'sb_publishable_3RuQH5_WE9uC4k9gRCW-ng_DXW_YuMb'
+    );
     new Vue({
-      el: '#app',
-      data: {
-        product:[
-            
-        ]
-      },     
-      methods: {
+        el: '#app',
+        data: {
+            product: [
 
-      },  
-      mounted() {
-        fetch('ass/product.json')
-        .then(response => response.json())
-        .then(data=>{
-            this.product=data.product;
-            console.log(this.product)
-        })
-
-        
-      }  
+            ],
+            logining: true,
+            emlie: null,
+            password: null,
+            userpesion: null,
+        },
+        methods: {
+            async register() {
+                if (!this.emlie || !this.password) {
+                    alert('请填写完整邮箱与密码！');
+                    return;
+                }
+                if (this.emlie.length < 6) {
+                    alert('请填写完整邮箱与密码！');
+                    return;
+                }
+                if (!this.userpesion) {
+                    alert('请同意用户协议！');
+                    return;
+                }
+                const { data, error } = await supabaseapp.auth.signUp({
+                    email: this.emlie,
+                    password: this.password,
+                });
+                if (error) {
+                    alert(error);
+                }
+                else {
+                    alert('注册成功');
+                }
+                return;
+            },
+        },
+        mounted() {
+            fetch('ass/product.json')
+            .then(response => response.json())
+            .then(data => {
+                this.product = data.product;
+                console.log(this.product)
+            })
+        }
     })
-  </script>
-  
+</script>
+
 </html>
