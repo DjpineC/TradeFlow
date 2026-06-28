@@ -180,7 +180,7 @@
                     alert('请同意用户协议！');
                     return;
                 }
-                const { data, error } = await supabaseapp.auth.signUp({
+                const { data, error } = await supabaseapp.auth.signInWithPassword({
                     email: this.emlie,
                     password: this.password,
                 });
@@ -193,13 +193,10 @@
                 return;
             },
         },
-        mounted() {
-            fetch('ass/product.json')
-            .then(response => response.json())
-            .then(data => {
-                this.product = data.product;
-                console.log(this.product)
-            })
+        async mounted() {
+            const{data,error}=await supabaseapp.from('products').select('*');
+            console.log(data,error)
+            this.product=data
         }
     })
 </script>
