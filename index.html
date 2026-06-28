@@ -180,7 +180,7 @@
                     alert('请同意用户协议！');
                     return;
                 }
-                const { data, error } = await supabaseapp.auth.signInWithPassword({
+                const { data, error } = await supabaseapp.auth.signUp({
                     email: this.emlie,
                     password: this.password,
                 });
