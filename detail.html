@@ -4,18 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XX交易行</title>
+    <title>商品详情页</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.108.2/dist/umd/supabase.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
 </head>
-
 <body>
     <div id="app">
         <div class="detail" v-if="datail">
-            
+            <div class="detail_nav">
+
+            </div>
+            <img :src="datail.image" alt="">
+            <div class="datail_title">
+                <span>{{datail.title}}</span>
+                <span class="info" v-for="info in datail.tags" :key="info.name"
+                    :style="{backgroundColor: info.color }" style="font-size: 14px;">&nbsp;{{info.name}}&nbsp;</span>
+            </div>
+            <div class="datail_sm_title">
+                <span class="info_gray" v-for="info in datail.accountFeatures" :key="info.info" style="font-size: 12px;">
+                    {{info.info}}
+                </span>
+            </div>
+            <div class="buy_botton">
+                确认订购
+            </div>
         </div>
     </div>
-
     <script>
         const supabaseapp = window.supabase.createClient(
             'https://peyqfvxzesnyfluapilt.supabase.co',
@@ -35,7 +50,7 @@
                 const { data, error } = await supabaseapp
                     .from('products')
                     .select('*')           
-                    .eq('id', productId)   
+                    .eq('id', urlParams.get('id'))   
                     .single();       
                 if(error){
                     console.log('该商品不可操作！',error);
