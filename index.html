@@ -233,7 +233,12 @@
                 return;
             },
             gotodetail(a){
-                window.open('detail.html?id='+a)
+                if(userpesion){
+                    window.open('detail.html?id='+a)
+                }
+                else{
+                    this.logining=true
+                }
             }
         },
         async mounted() {

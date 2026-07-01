@@ -11,7 +11,9 @@
 
 <body>
     <div id="app">
-
+        <div class="detail" v-if="datail">
+            
+        </div>
     </div>
 
     <script>
@@ -22,10 +24,26 @@
         new Vue({
             el: '#app',
             data: {
-
+                datail:null,
+            },
+            methods: {
+                
             },
             async mounted() {
-
+                const urlParams = new URLSearchParams(window.location.search);
+                console.log(urlParams.get('id'));
+                const { data, error } = await supabaseapp
+                    .from('products')
+                    .select('*')           
+                    .eq('id', productId)   
+                    .single();       
+                if(error){
+                    console.log('该商品不可操作！',error);
+                    window.close();
+                }
+                else{
+                    this.datail=data;
+                }
             }
         });
     </script>
