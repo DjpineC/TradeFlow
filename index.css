@@ -304,10 +304,12 @@
         padding: 0.5em 2em;
         font-size: 40px;
         cursor: pointer;
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
     }
     .login_login button:hover{
         color: white;
-        transform: scale(1.1);
         background-color: gray;
         border: none;
         padding: 0.5em 2em;
@@ -321,4 +323,17 @@
         justify-content: center;
         gap: 1em;
         font-size: 30px;
+    }
+    .loading-138{
+     width: 50px;
+     aspect-ratio: 1;
+     --_c: no-repeat radial-gradient(farthest-side, #25b09b 92%, #0000);
+     background: var(--_c) top, var(--_c) left, var(--_c) right, var(--_c) bottom;
+     background-size: 12px 12px;
+     animation: loading-138 1s infinite;
+    }
+    @keyframes loading-138  {
+        to  {
+        transform: rotate(0.5turn);
+    }
     }
