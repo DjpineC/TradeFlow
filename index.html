@@ -17,7 +17,6 @@
                 <!-- <img src="./ass/img.png" alt=""> -->
                 <div class="big">
                     <div class="login_main_test">
-                        <p>密码登录</p>
                         <p>邮箱登录</p>
                     </div>
                     <div class="login_maim_inputs">
@@ -35,7 +34,7 @@
                         </div>
                     </div>
                     <div class="login_login">
-                        <button>登录</button>
+                        <button @click="logining()">登录</button>
                         <button @click="register()">注册</button>
                     </div>
                     <div class="agreement">
@@ -162,7 +161,7 @@
             product: [
 
             ],
-            logining: false,
+            logining: true,
             emlie: null,
             password: null,
             userpesion: null,
@@ -193,11 +192,46 @@
                 }
                 return;
             },
+            async logining(){
+                if (!this.emlie || !this.password) {
+                    alert('请填写完整邮箱与密码！');
+                    return;
+                }
+                if (this.emlie.length < 6) {
+                    alert('请填写完整邮箱与密码！');
+                    return;
+                }
+                if (!this.userpesion) {
+                    alert('请同意用户协议！');
+                    return;
+                }
+                const { data, error } = await supabaseapp.auth.signInWithPassword({
+                    email: this.emlie,
+                    password: this.password,
+                });
+                if (error) {
+                    alert(error);
+                }
+                else {
+                    alert('登录成功！');
+                    this.logining=false;
+                    this.userpesion=data;
+                    localStorage.setItem('user_login', JSON.stringify(data));
+                }
+                return;
+            },
         },
         async mounted() {
             const{data,error}=await supabaseapp.from('products').select('*');
             console.log(data,error)
             this.product=data
+            try{
+                const session = JSON.parse(user_login);
+                this.userpesion=session;
+            }
+            catch{
+                console.log('未登录')
+            }
         }
     })
 </script>
