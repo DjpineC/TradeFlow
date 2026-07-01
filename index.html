@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="generalComponent" v-for="item in product" :key="item.id">
-            <div class="product">
+            <div class="product" @click="gotodetail(item.id)">
                 <img :src="item.image">
                 <div style="flex: 1;">
                     <div>
@@ -232,6 +232,9 @@
                 }
                 return;
             },
+            gotodetail(a){
+                window.open('detail.html?id='+a)
+            }
         },
         async mounted() {
             const{data,error}=await supabaseapp.from('products').select('*');
@@ -241,6 +244,9 @@
                 const session = JSON.parse(localStorage.getItem('user_login'));
                 this.userpesion=session;
                 console.log('已解析用户数据',this.userpesion)
+                if(!this.userpesion){
+                    console.log('用户未登录')
+                }
             }
             catch{
                 console.log('未登录')
