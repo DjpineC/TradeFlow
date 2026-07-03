@@ -11,6 +11,21 @@
 </head>
 <body>
     <div id="app">
+        <div class="login_box">
+            <div class="login_main" style="max-width: 70%;">
+                <div class="buyalt">
+                    <p>是否确定为该账号订购此商品？</p>
+                    <p style="text-align: center;color: tomato;">{{userpesion.user.email}}</p>
+                    <p style="color: gray;font-size: 12px;">*这不会直接产生费用，但会使此订单处于锁定状态 稍后不满意可随时取消锁定</p>
+                    <button style="width: 90%;margin: 0.2em;font-size: 20px;margin-top: 0.8em;">确定并获得订单号</button>
+                </div>
+                <div class="buyalt">
+                    <p>订单号：99999999999</p>
+                    <p>客服qq号：100000000</p>
+                    <button @click="gotoqicq">点我跳转到QQ</button>
+                </div>
+            </div>
+        </div>
         <div class="detail" v-if="datail">
             <div class="detail_nav">
                 <svg @click="close_back()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,11 +66,15 @@
             el: '#app',
             data: {
                 datail:null,
+                userpesion:null,
             },
             methods: {
                 close_back(){
                     window.close();
-                }         
+                },
+                gotoqicq(){
+                    window.location.href = 'mqq://';
+                }
             },
             async mounted() {
                 const urlParams = new URLSearchParams(window.location.search);
@@ -71,6 +90,19 @@
                 }
                 else{
                     this.datail=data;
+                }
+                try{
+                    const session = JSON.parse(localStorage.getItem('user_login'));
+                    this.userpesion=session;
+                    console.log('已解析用户数据',this.userpesion)
+                    if(!this.userpesion){
+                        console.log('用户未登录')
+                        alert('请前往主页登录账号！')
+                        window.location.href = 'https://jiaoyihang.netlify.app/';
+                    }
+                }
+                catch{
+                    console.log('未登录')
                 }
             }
         });

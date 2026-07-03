@@ -382,3 +382,9 @@
     .datail_big_image{
         position: relative;
     }
+    .buyalt{
+        padding: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
