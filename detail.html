@@ -17,7 +17,10 @@
                     <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <img :src="datail.image" alt="">
+            <div class="datail_big_image">
+                <img :src="datail.image" alt="">
+                <div class="zhezhao"></div>
+            </div>
             <div class="datail_title">
                 <span>{{datail.title}}</span>
                 <span class="info" v-for="info in datail.tags" :key="info.name"
@@ -28,6 +31,12 @@
                     {{info.info}}
                 </span>
             </div>
+            <div class="datail_big_ziyuan">
+                <span class="info_box" v-for="info in datail.accountResources" :key="info.info">
+                    {{info.info}}
+                </span>
+            </div>
+            <img src="./ass/流程图.png" alt="" style="width: 100%;">
             <div class="buy_botton">
                 确认订购
             </div>

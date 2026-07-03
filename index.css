@@ -337,11 +337,6 @@
         transform: rotate(0.5turn);
     }
     }
-    .detail>img{
-        width: 100%;
-        max-height: 18em;
-        object-fit: cover;
-    }
     .detail .datail_title{
         display: block;
         padding: 0.2em 0.6em;
@@ -365,4 +360,25 @@
         padding: 0.5em 1.3em;
         width: 100%;
         position: fixed;
+    }
+    .datail_big_ziyuan{
+        display: flex;
+        padding: 0.5em 1em;
+        flex-wrap: wrap;
+    }
+    .datail_big_image img{
+        width: 100%;
+        max-height: 18em;
+        object-fit: cover;
+    }
+    .zhezhao{
+        position: absolute;
+        height: 1em;
+        width: 100%;
+        background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0));
+        bottom: 0em;
+        left: 0em;
+    }
+    .datail_big_image{
+        position: relative;
     }
