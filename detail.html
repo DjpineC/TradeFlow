@@ -109,7 +109,8 @@
                         this.close_back()
                         return;
                     }
-                    
+                    const { data: { session }, error: sessionError } = await supabaseapp.auth.getSession();
+                    this.userpesion = session ? { user: session.user, session: session } : null;
                     const response = await fetch('https://peyqfvxzesnyfluapilt.supabase.co/functions/v1/super-action', {
                         method: 'POST',
                         headers: {
