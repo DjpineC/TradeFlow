@@ -17,11 +17,23 @@
                     <p>是否确定为该账号订购此商品？</p>
                     <p style="text-align: center;color: tomato;">{{userpesion.user.email}}</p>
                     <p style="color: gray;font-size: 12px;">*这不会直接产生费用，但会使此订单处于锁定状态 稍后不满意可随时取消锁定</p>
-                    <button @click="ait0=false;ait1=true" style="width: 90%;margin: 0.2em;font-size: 20px;margin-top: 0.8em;">确定并获得订单号</button>
+                    <button @click="createOrder()" style="width: 90%;margin: 0.2em;font-size: 20px;margin-top: 0.8em;">确定并获得订单号</button>
                 </div>
                 <div class="buyalt" v-if="ait1">
-                    <p>订单号：还没做</p>
-                    <p>客服qq号：没有客服</p>
+                    <div class="buyalt_p_and_copy">
+                        <p style="width: 100%;">订单号：{{orderid}}</p>
+                        <svg @click="copyText(orderid)" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V6C16 4.89543 15.1046 4 14 4H6C4.89543 4 4 4.89543 4 6V14C4 15.1046 4.89543 16 6 16H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="buyalt_p_and_copy">
+                        <p style="width: 100%;">客服qq号：没有客服</p>
+                        <svg @click="copyText('没有客服')" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V6C16 4.89543 15.1046 4 14 4H6C4.89543 4 4 4.89543 4 6V14C4 15.1046 4.89543 16 6 16H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <button @click="gotoqicq">点我跳转到QQ</button>
                 </div>
             </div>
@@ -70,6 +82,7 @@
                 ait:false,
                 ait0:true,
                 ait1:false,
+                orderid:'出现错误！请联系客户或管理员！',
             },
             methods: {
                 close_back(){
@@ -77,6 +90,32 @@
                 },
                 gotoqicq(){
                     window.location.href = 'mqq://';
+                },
+                async createOrder(){
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const response = await fetch('https://peyqfvxzesnyfluapilt.supabase.co/functions/v1/super-action', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + this.userpesion.session.access_token,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ 
+                            product_id: urlParams.get('id'),
+                            user_id: this.userpesion.user.email,
+                        })
+                    })
+                    const result = await response.json()
+                    console.log(result);
+                    this.orderid=result.orderId;
+                    this.ait0=false;
+                    this.ait1=true;
+                },
+                copyText(a) {
+                    navigator.clipboard.writeText(a).then(() => {
+                        alert('已复制到剪切板')
+                    }).catch(() => {
+                        alert('复制失败，请手动复制')
+                    })
                 }
             },
             async mounted() {
@@ -98,6 +137,7 @@
                     const session = JSON.parse(localStorage.getItem('user_login'));
                     this.userpesion=session;
                     console.log('已解析用户数据',this.userpesion)
+                    console.log('Bearer ' + this.userpesion.session.access_token)
                     if(!this.userpesion){
                         console.log('用户未登录')
                         alert('请前往主页登录账号！')
@@ -106,6 +146,9 @@
                 }
                 catch{
                     console.log('未登录')
+                    console.log('用户未登录')
+                    alert('请前往主页登录账号！')
+                    window.location.href = 'https://jiaoyihang.netlify.app/';
                 }
             }
         });

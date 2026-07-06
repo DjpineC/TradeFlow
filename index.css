@@ -388,3 +388,11 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    .buyalt_p_and_copy{
+        display: flex;
+        width: 100%;;
+        flex-wrap: nowrap;
+    }
+    .buyalt_p_and_copy svg{
+        margin-left: auto;
+    }
