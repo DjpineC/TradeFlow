@@ -107,7 +107,7 @@
                     </svg></span>
             </div>
         </div>
-        <div class="generalComponent" v-for="item in product" :key="item.id">
+        <div class="generalComponent" v-for="item in product" :key="item.id" v-if="!item.Lock">
             <div class="product" @click="gotodetail(item.id)">
                 <img :src="item.image">
                 <div style="flex: 1;">

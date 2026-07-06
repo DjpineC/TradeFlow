@@ -93,6 +93,23 @@
                 },
                 async createOrder(){
                     const urlParams = new URLSearchParams(window.location.search);
+                    const { data, error } = await supabaseapp
+                        .from('products')
+                        .select('*')
+                        .eq('id', urlParams.get('id'))
+                    console.log(data)
+                    try {
+                        if(data[0].Lock){
+                            alert('慢了一步，该商品已被锁定！')
+                            this.close_back()
+                            return;
+                        }
+                    } catch (error) {
+                        alert('该商品存在错误，请联系客服或管理员')
+                        this.close_back()
+                        return;
+                    }
+                    
                     const response = await fetch('https://peyqfvxzesnyfluapilt.supabase.co/functions/v1/super-action', {
                         method: 'POST',
                         headers: {
