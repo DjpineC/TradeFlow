@@ -12,6 +12,10 @@
 <body>
     <div id="app"
         style="display: flex;flex-wrap: wrap;background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 50%, #e8eaf6 100%);justify-content: center;">
+        <div class="buttom_nav">
+            <p style="font-weight: 600;" >我要租号</p>
+            <p @click="gotopage('my.html')">我的</p>
+        </div>
         <div class="login_box" v-if="logining" @click="logining=!logining">
             <div class="login_main" @click.stop>
                 <!-- <img src="./ass/img.png" alt=""> -->
@@ -239,6 +243,9 @@
                 else{
                     this.logining=true
                 }
+            },
+            gotopage(a){
+                window.open(a);
             }
         },
         async mounted() {

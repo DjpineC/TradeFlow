@@ -396,3 +396,38 @@
     .buyalt_p_and_copy svg{
         margin-left: auto;
     }
+    .buttom_nav{
+        position: fixed;
+        width: 100%;
+        padding: 1.3em ;
+        background-color: white;
+        bottom: 0em;
+        font-size: 34px;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 1px 1px 10px 1px gray;
+    }
+    .buttom_nav p{
+        margin-bottom: 0.2em;
+    }
+    .generalComponent:last-of-type {
+        margin-bottom: 12em; 
+    }
+    .avatar{
+        display: flex;
+        align-items: center;
+        padding: 3em;
+        width: 100%;
+    }
+    .avatar p{
+        font-size: 40px;
+        font-weight: 600;
+        margin-left: 1em;
+    }
+    .avatar img{
+        width: 10em;
+        border-radius: 100%;
+    }
+    .order{
+        display: block;
+    }
