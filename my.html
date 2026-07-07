@@ -60,7 +60,7 @@
         <div class="order">
             <p>我的订单</p>
             <div v-if="userpesion&&product.length > 0">
-                <div class="generalComponent" v-for="item in product" :key="item.id" v-if="!item.Lock">
+                <div class="generalComponent" v-for="item in product" :key="item.id">
                     <div class="product" @click="gotodetail(item.id)">
                         <img :src="item.image">
                         <div style="flex: 1;">
@@ -203,7 +203,7 @@
                     .eq('user_id', this.userpesion.user.email)
                 console.log(data, error)
                 this.product = data;
-                let productIds=[1]
+                let productIds=[];
                 for(let i of this.product){
                     productIds.push(Number(i.product_id))
                 }
