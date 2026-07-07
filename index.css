@@ -429,5 +429,10 @@
         border-radius: 100%;
     }
     .order{
+        width: 100%;
         display: block;
+        padding: 2em 4em ;
+    }
+    .order p{
+        font-size: 40px;
     }

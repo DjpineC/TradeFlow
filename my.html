@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>xx交易行</title>
+    <title>我的</title>
     <meta charset="utf-8">
 </head>
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -13,7 +13,7 @@
     <div id="app"
         style="display: flex;flex-wrap: wrap;background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 50%, #e8eaf6 100%);justify-content: center;">
         <div class="buttom_nav">
-            <p>我要租号</p>
+            <p @click="gotopage('index.html')">我要租号</p>
             <p style="font-weight: 600;">我的</p>
         </div>
         <div class="login_box" v-if="logining" @click="logining=!logining">
@@ -53,12 +53,46 @@
             </div>
         </div>
         
-        <div class="avatar">
+        <div class="avatar" @click="logining=!logining">
             <img src="./ass/img.png" alt="头像">
             <p>{{ userpesion && userpesion.user ? userpesion.user.email : '未登录' }}</p>
         </div>
         <div class="order">
-            <h1>我的订单</h1>
+            <p>我的订单</p>
+            <div v-if="userpesion&&product.length > 0">
+                <div class="generalComponent" v-for="item in product" :key="item.id" v-if="!item.Lock">
+                    <div class="product" @click="gotodetail(item.id)">
+                        <img :src="item.image">
+                        <div style="flex: 1;">
+                            <div>
+                                <span class="info" v-for="info in item.tags" :key="info.name"
+                                    :style="{backgroundColor: info.color }">&nbsp;{{info.name}}&nbsp;</span>
+                                <span class="title">
+                                    {{item.title}}
+                                </span>
+                            </div>
+                            <div style="margin: 0.5em 0;">
+                                <span class="info_gray" v-for="info in item.accountFeatures" :key="info.info">
+                                    {{info.info}}
+                                </span>
+                            </div>
+                            <div>
+                                <span class="info_box" v-for="info in item.accountResources" :key="info.info">
+                                    {{info.info}}
+                                </span>
+                            </div>
+                            <div class="resources">
+                                <div class="box" v-for="i in 4">
+                                    <p>资源{{i}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-else style="padding: 1em;width: 100%;">
+                <p style="text-align: center;">无</p>
+            </div>
         </div>
     </div>
 </body>
@@ -145,12 +179,12 @@
                 else{
                     this.logining=true
                 }
+            },
+            gotopage(a){
+                window.open(a);
             }
         },
         async mounted() {
-            const{data,error}=await supabaseapp.from('products').select('*');
-            console.log(data,error)
-            this.product=data
             try{
                 const session = JSON.parse(localStorage.getItem('user_login'));
                 this.userpesion=session;
@@ -161,6 +195,24 @@
             }
             catch{
                 console.log('未登录')
+            }
+            if(this.userpesion){
+                const { data, error } = await supabaseapp
+                    .from('orders')
+                    .select('*')
+                    .eq('user_id', this.userpesion.user.email)
+                console.log(data, error)
+                this.product = data;
+                let productIds=[1]
+                for(let i of this.product){
+                    productIds.push(Number(i.product_id))
+                }
+                console.log(productIds)
+                const { data: products } = await supabaseapp
+                    .from('products')
+                    .select('*')
+                    .in('id', productIds)
+                this.product = products;
             }
         }
     })
