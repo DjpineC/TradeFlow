@@ -129,11 +129,22 @@
                     this.ait1=true;
                 },
                 copyText(a) {
-                    navigator.clipboard.writeText(a).then(() => {
-                        alert('已复制到剪切板')
-                    }).catch(() => {
-                        alert('复制失败，请手动复制')
-                    })
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(a)
+                        .then(() => alert('已复制到剪切板'))
+                        .catch(() => this.fallbackCopy(a))
+                    } else {
+                        this.fallbackCopy(a)
+                    }
+                },
+                fallbackCopy(text) {
+                    const input = document.createElement('input')
+                    input.value = text
+                    document.body.appendChild(input)
+                    input.select()
+                    document.execCommand('copy')
+                    document.body.removeChild(input)
+                    alert('已复制到剪切板')
                 }
             },
             async mounted() {
