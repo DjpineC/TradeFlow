@@ -218,14 +218,14 @@
             },
             gotodetail(a){
                 if(this.userpesion){
-                    window.location.href('detail.html?id='+a)
+                    window.location.href = 'detail.html?id=' + a 
                 }
                 else{
                     this.logining=true
                 }
             },
             gotopage(a){
-                window.location.href(a);
+                window.location.href = a 
             },
             copyText(a) {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
