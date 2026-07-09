@@ -260,7 +260,7 @@
                 this.ait=true;
             },
             async unlockOrder(a){
-                const r = confirm('确定取消锁定该订单？订单号：',a)
+                const r = confirm('确定取消锁定该订单？')
                 if (r) {
                     console.log(a)
                     const { data: { session }, error: sessionError } = await supabaseapp.auth.getSession();
