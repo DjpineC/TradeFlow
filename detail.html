@@ -119,8 +119,7 @@
                         },
                         body: JSON.stringify({ 
                             product_id: urlParams.get('id'),
-                            user_id: this.userpesion.user.email,
-                            operator:userpesion.user.email
+                            user_id: this.userpesion.user.email
                         })
                     })
                     const result = await response.json()
