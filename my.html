@@ -260,7 +260,7 @@
                 this.ait=true;
             },
             async unlockOrder(a){
-                const r = confirm('确定取消锁定该订单？')
+                const r = confirm('确定取消锁定该订单？你将无法对该订单执行任何操作！')
                 if (r) {
                     console.log(a)
                     const { data: { session }, error: sessionError } = await supabaseapp.auth.getSession();
@@ -272,7 +272,8 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            productId: a
+                            productId: a,
+                            operator:userpesion.user.email
                         })
                     })
                     const result = await response.json()
@@ -305,7 +306,10 @@
                 this.product = data;
                 let productIds=[];
                 for(let i of this.product){
-                    productIds.push(Number(i.product_id))
+                    if(i.status!='未锁定'){
+                        productIds.push(Number(i.product_id))
+                    }
+                    
                 }
                 console.log(productIds)
                 const { data: products } = await supabaseapp
