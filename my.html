@@ -253,6 +253,7 @@
                 const { data, error } = await supabaseapp
                     .from('orders')
                     .select('orderId')
+                    .eq('status', '锁定')
                     .eq('product_id', productId)
                     .single()
                 console.log(data)
@@ -267,6 +268,7 @@
                         .from('orders')
                         .select('orderId')
                         .eq('product_id', a)
+                        .eq('status', '锁定')
                         .single()
                     console.log(data)
                     const b=data.orderId;
