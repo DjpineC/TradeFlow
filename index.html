@@ -158,6 +158,10 @@
                 </div> -->
             </div>
         </div>
+
+        <div class="login_box" v-if="loader">
+            <div class="loader"></div>
+        </div>
     </div>
 </body>
 <script>
@@ -177,6 +181,7 @@
             userpesion: null,
             loginload:false,
             zhuceload:false,
+            loader:false
         },
         methods: {
             async register() {
@@ -249,12 +254,14 @@
             }
         },
         async mounted() {
+            this.loader=true
             const{data,error}=await supabaseapp.from('products').select('*');
             console.log(data,error)
             this.product=data
             try{
                 const session = JSON.parse(localStorage.getItem('user_login'));
                 this.userpesion=session;
+                this.loader=false
                 console.log('已解析用户数据',this.userpesion)
                 if(!this.userpesion){
                     console.log('用户未登录')

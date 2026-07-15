@@ -135,6 +135,10 @@
             <p style="text-align: center;">无</p>
         </div>
         <div style="width: 100%; margin-top: auto;"></div>
+
+        <div class="login_box" v-if="loader">
+            <div class="loader"></div>
+        </div>
     </div>
 </body>
 <script>
@@ -155,7 +159,8 @@
             loginload:false,
             zhuceload:false,
             ait:false,
-            order_id:null
+            order_id:null,
+            loader:false
         },
         methods: {
             async register() {
@@ -263,6 +268,7 @@
             async unlockOrder(a){
                 const r = confirm('确定取消锁定该订单？你将无法对该订单执行任何操作！')
                 if (r) {
+                    this.loader=true
                     console.log(a)
                     const { data, error } = await supabaseapp
                         .from('orders')
@@ -288,6 +294,7 @@
                     const result = await response.json()
                     console.log(result)
                     alert('该订单已成功取消锁定！')
+                    this.loader=false
                     location.reload() 
                 } else {
                     return;
@@ -296,11 +303,13 @@
         },
         async mounted() {
             try{
+                this.loader=true
                 const session = JSON.parse(localStorage.getItem('user_login'));
                 this.userpesion=session;
                 console.log('已解析用户数据',this.userpesion)
                 if(!this.userpesion){
                     console.log('用户未登录')
+                    this.loader=false
                 }
             }
             catch{
@@ -325,6 +334,7 @@
                     .select('*')
                     .in('id', productIds)
                 this.product = products;
+                this.loader=false
             }
         }
     })
