@@ -266,7 +266,7 @@
                     const { data, error } = await supabaseapp
                         .from('orders')
                         .select('orderId')
-                        .eq('product_id', productId)
+                        .eq('product_id', a)
                         .single()
                     console.log(data)
                     const b=data.orderId;
