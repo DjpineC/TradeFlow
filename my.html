@@ -263,6 +263,13 @@
                 const r = confirm('确定取消锁定该订单？你将无法对该订单执行任何操作！')
                 if (r) {
                     console.log(a)
+                    const { data, error } = await supabaseapp
+                        .from('orders')
+                        .select('orderId')
+                        .eq('product_id', productId)
+                        .single()
+                    console.log(data)
+                    const b=data.orderId;
                     const { data: { session }, error: sessionError } = await supabaseapp.auth.getSession();
                     this.userpesion = session ? { user: session.user, session: session } : null;
                     const response = await fetch('https://peyqfvxzesnyfluapilt.supabase.co/functions/v1/hyper-function', {
@@ -272,7 +279,7 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            productId: a,
+                            orderId: b,
                             operator: this.userpesion.user.email
                         })
                     })
@@ -309,7 +316,6 @@
                     if(i.status!='未锁定'){
                         productIds.push(Number(i.product_id))
                     }
-                    
                 }
                 console.log(productIds)
                 const { data: products } = await supabaseapp
